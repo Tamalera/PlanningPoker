@@ -18,3 +18,10 @@ function ausWahlBestaetigen() {
         document.getElementById("ausWahlAnzeigen").className = "my-2 bg-success text-white";
     }
 }
+
+function resetPoints(){
+    var array = document.getElementsByClassName("storyPointInput");
+    for (var i =0; i < array.length; i++) {
+        array[i].value = "";
+    }
+}
