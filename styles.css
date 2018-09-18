@@ -84,3 +84,11 @@ body {
 .totalStoryPoints {
     font-weight: bold;
 }
+
+#totalpoints{
+    width: 100px;
+}
+
+#average{
+    width: 100px;
+}

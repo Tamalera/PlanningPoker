@@ -27,44 +27,48 @@
             <div class="container">
                 <p>Teammitglieder und Story Point erfassen:</p>
                 <div class="teammitglied">
-                        <input name="Story Point" placeholder="Story Point" class="storyPointInput">
+                        <input name="Story Point" onchange="updatevalue()" placeholder="Story Point" class="storyPointInput">
                         <input name="Name" placeholder="Name des Teammitglieds" class="nameInput">
                 </div>
                 <div class="teammitglied">
-                        <input name="Story Point" placeholder="Story Point" class="storyPointInput">
+                        <input name="Story Point" onchange="updatevalue()" placeholder="Story Point" class="storyPointInput">
                         <input name="Name" placeholder="Name des Teammitglieds" class="nameInput">
                 </div>
                 <div class="teammitglied">
-                        <input name="Story Point" placeholder="Story Point" class="storyPointInput">
+                        <input name="Story Point" onchange="updatevalue()" placeholder="Story Point" class="storyPointInput">
                         <input name="Name" placeholder="Name des Teammitglieds" class="nameInput">
                 </div>
                 <div class="teammitglied">
-                        <input name="Story Point" placeholder="Story Point" class="storyPointInput">
+                        <input name="Story Point" onchange="updatevalue()" placeholder="Story Point" class="storyPointInput">
                         <input name="Name" placeholder="Name des Teammitglieds" class="nameInput">
                 </div>
                 <div class="teammitglied">
-                        <input name="Story Point" placeholder="Story Point" class="storyPointInput">
+                        <input name="Story Point" onchange="updatevalue()" placeholder="Story Point" class="storyPointInput">
                         <input name="Name" placeholder="Name des Teammitglieds" class="nameInput">
                 </div>
                 <div class="teammitglied">
-                        <input name="Story Point" placeholder="Story Point" class="storyPointInput">
+                        <input name="Story Point" onchange="updatevalue()" placeholder="Story Point" class="storyPointInput">
                         <input name="Name" placeholder="Name des Teammitglieds" class="nameInput">
                 </div>
                 <div class="teammitglied">
-                        <input name="Story Point" placeholder="Story Point" class="storyPointInput">
+                        <input name="Story Point" onchange="updatevalue()" placeholder="Story Point" class="storyPointInput">
                         <input name="Name" placeholder="Name des Teammitglieds" class="nameInput">
                 </div>
                 <div class="teammitglied">
-                        <input name="Story Point" placeholder="Story Point" class="storyPointInput">
+                        <input name="Story Point" onchange="updatevalue()" placeholder="Story Point" class="storyPointInput">
                         <input name="Name" placeholder="Name des Teammitglieds" class="nameInput">
                 </div>
                 <div class="teammitglied">
-                        <input name="Story Point" placeholder="Story Point" class="storyPointInput">
+                        <input name="Story Point" onchange="updatevalue()" placeholder="Story Point" class="storyPointInput">
                         <input name="Name" placeholder="Name des Teammitglieds" class="nameInput">
                 </div>
                 <div class="totalStoryPoints">
-                        <label class="storyPointInput">123</label>
+                        <label id="totalpoints"></label>
                         <label class="nameInput">Total Story Points</label>
+                </div>
+                <div class="totalStoryPoints">
+                        <label id="average"></label>
+                        <label class="nameInput">Durchschnitt(auf nächste Fibonaccizahl gerundet)</label>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="resetPoints()">Reset Points</button>
             </div>
