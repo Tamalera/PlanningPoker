@@ -1,9 +1,10 @@
+/* CARD FLP FUNCTION */
 var x = 0;
 function ausWahlBestaetigen() {
     var flipCard = document.getElementById("cardWrapper").children;
     var txt = "";
     var counter = 0;
-    /* First elemet is the paragraph -> start count at 1 */
+    /* First element is the paragraph -> start count at 1 */
     for (var i = 1; i < flipCard.length; i++) {
         if (flipCard[i].children[0].checked) {
             counter++;
@@ -19,7 +20,10 @@ function ausWahlBestaetigen() {
         document.getElementById("ausWahlAnzeigen").className = "my-2 bg-success text-white";
     }
 }
+/* END CARD FLIP FUNCTION */
 
+
+/* RESET BUTTON */
 function resetPoints(){
     var array = document.getElementsByClassName("storyPointInput");
     for (var i =0; i < array.length; i++) {
@@ -28,7 +32,9 @@ function resetPoints(){
     document.getElementById("totalpoints").innerHTML = "";
     document.getElementById("average").innerHTML = "";
 }
+/* END RESET BUTTON */
 
+/* AVERAGE PUNKTE */
 function updatevalue(){
     var totalvalue = 0;
     var count = 0;
@@ -57,5 +63,54 @@ function updatevalue(){
         }
     }
     document.getElementById("average").innerHTML = x;
+    }
 }
+/* END AVERAGE PUNKTE */
+
+/* ZUSAMMENFASSUNG ANZEIGEN */
+function toggleExport(){
+    var exportButton = document.getElementById("exportButton");
+    if (exportButton.hidden === true) {
+        exportButton.hidden = false;
+    } else {
+        exportButton.hidden = true;
+    }
+    /* TODO ZUSAMMENFASSUNG ANZEIGEN... */
 }
+
+/* ENDE ZUSAMMENFASSUNG ANZEIGEN */
+
+/* DRUCKEN */
+function drucken(title) {
+    let fenster = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+    
+    fenster.document.write(`<html><head><title>${title}</title>`);
+    fenster.document.write('</head><body >');
+    fenster.document.write(document.getElementById('storyPoints').innerHTML);
+    fenster.document.write('</body></html>');
+    
+    // IE-Support
+    fenster.document.close();
+    fenster.focus();
+    
+    fenster.print();
+    fenster.close();
+    
+    return true;
+}
+/* END DRUCKEN */
+
+/* EXPORT ALS PDF */
+function exportAlsPdf() {
+    var zusammenfassung = new jsPDF();
+    /* Inhalt: */
+    zusammenfassung.addHTML($('#storyPoints').first(),function(){
+
+         /* Direkt in Chrome als pdf anzeigen */
+        zusammenfassung.autoPrint()
+
+        /* Abspeichern */
+        zusammenfassung.save('zusammenfassung.pdf')
+    });
+}
+/* END EXPORT ALS PDF */
