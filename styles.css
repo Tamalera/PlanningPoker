@@ -92,3 +92,8 @@ body {
 #average{
     width: 100px;
 }
+
+/* IMPORTANT, SONST SCHWARZER HINTERGRUND BEIM PDF */
+#tableContainer {
+    background-color: white;
+}

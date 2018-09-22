@@ -71,8 +71,11 @@
                         <label class="nameInput">Durchschnitt(auf nächste Fibonaccizahl gerundet)</label>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="resetPoints()">Reset Points</button>
-                <button type="button" class="btn btn-secondary" onclick="toggleExport()">Zusammenfassung</button>
+                <button type="button" class="btn btn-secondary" onclick="erstelleZuFas()">Zusammenfassung</button>
                 <button type="button" class="btn btn-secondary" id="exportButton" hidden onclick="exportAlsPdf('Zusammenfassung:')">export als PDF</button>
+            </div>
+            <div id="tableContainer" hidden>
+                <!-- HIER LEBT DIE ZUSAMMENFASSUNGSTABELLE; NICHTS REINSCHREIBEN! -->
             </div>
 
             <footer class="footer">
