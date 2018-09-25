@@ -41,10 +41,11 @@ function updatevalue(){
     var fibos = [0,1,2,3,5,8,13,21,34,55,89,144]
     var array = document.getElementsByClassName("storyPointInput");
     for (var i =0; i < array.length; i++) {
-        if( array[i].value != ""){
-        
-        totalvalue += +array[i].value;
-        count += 1;
+            if( array[i].value != ""){
+            
+            totalvalue += +array[i].value;
+            count += 1;
+        }
     }
     document.getElementById("totalpoints").innerHTML = totalvalue;
     console.log(totalvalue, "lol");
@@ -63,7 +64,7 @@ function updatevalue(){
         }
     }
     document.getElementById("average").innerHTML = x;
-    }
+
 }
 /* END AVERAGE PUNKTE */
 
