@@ -48,7 +48,7 @@ function updatevalue(){
         }
     }
     document.getElementById("totalpoints").innerHTML = totalvalue;
-    console.log(totalvalue, "lol");
+
     var average = totalvalue / count;
     for (var i =0; i < fibos.length; i++){
         if( average == fibos[i]){
@@ -64,7 +64,7 @@ function updatevalue(){
         }
     }
     document.getElementById("average").innerHTML = x;
-
+    
 }
 /* END AVERAGE PUNKTE */
 
