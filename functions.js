@@ -72,10 +72,13 @@ function updatevalue(){
 function erstelleZuFas(){
     /* Toggle "Export to PDF" btn */
     var exportButton = document.getElementById("exportButton");
+    var exportcsv  = document.getElementById("exportCSVButton");
     if (exportButton.hidden === true) {
         exportButton.hidden = false;
+        exportcsv.hidden = false;
     } else {
         exportButton.hidden = true;
+        expoortcsv.hidden = true;
     }
 
     /* ZUSAMMENFASSUNG ANZEIGEN: Erstmal Table-Div anzeigen */
@@ -155,7 +158,7 @@ function drucken(title) {
 }
 /* END DRUCKEN */
 
-/* EXPORT ALS PDF */
+/* EXPORT ALS PDF and CSV */
 function exportAlsPdf() {
     var zusammenfassung = new jsPDF();
     zusammenfassung.setFillColor(1);
@@ -168,4 +171,32 @@ function exportAlsPdf() {
         zusammenfassung.save('zusammenfassung.pdf')
     });
 }
-/* END EXPORT ALS PDF */
+
+function exportAlsCSV() {
+    tempArray = [];
+    fullArray = [];
+    points = document.getElementsByClassName("storyPointInput");
+    names =  document.getElementsByClassName("nameInput");
+    for(i = 0; i < points.length; i ++){
+            if(points[i].value != "" || names[i].value != ""){
+                tempArray.push(points[i].value);
+                tempArray.push(names[i].value);
+                fullArray.push(tempArray);
+            }
+            
+            tempArray = [];
+    }
+
+    var csv = 'Punkte,Name\n';
+    fullArray.forEach(function(row) {
+            csv += row.join(',');
+            csv += "\n";
+    });
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'PlanningPoker.csv';
+    hiddenElement.click();
+
+}
+/* END EXPORT ALS CSV and PDF */
