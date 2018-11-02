@@ -24,7 +24,7 @@ function ausWahlBestaetigen() {
 
 
 /* RESET BUTTON */
-function resetPoints(){
+function resetPoints() {
     var array = document.getElementsByClassName("storyPointInput");
     for (var i =0; i < array.length; i++) {
         array[i].value = "";
@@ -35,7 +35,7 @@ function resetPoints(){
 /* END RESET BUTTON */
 
 /* AVERAGE PUNKTE */
-function updatevalue(){
+function updatevalue() {
     var totalvalue = 0;
     var count = 0;
     var fibos = [0,1,2,3,5,8,13,21,34,55,89,144]
@@ -53,14 +53,11 @@ function updatevalue(){
     for (var i =0; i < fibos.length; i++){
         if( average == fibos[i]){
             x = fibos[i];
-            console.log("fuck this shit");
         }
         else if(average > fibos[i] && average < fibos[i+1]) {
-            console.log(average, fibos[i], fibos[i+1])
             x = fibos[i+1];
         }
         else{
-            console.log("mieep");
         }
     }
     document.getElementById("average").innerHTML = x;
@@ -69,16 +66,19 @@ function updatevalue(){
 /* END AVERAGE PUNKTE */
 
 /* ZUSAMMENFASSUNG ANZEIGEN */
-function erstelleZuFas(){
+function erstelleZuFas() {
     /* Toggle "Export to PDF" btn */
     var exportButton = document.getElementById("exportButton");
     var exportcsv  = document.getElementById("exportCSVButton");
+    var exportTxt  = document.getElementById("exportTxtButton");
     if (exportButton.hidden === true) {
         exportButton.hidden = false;
         exportcsv.hidden = false;
+        exportTxt.hidden = false;
     } else {
         exportButton.hidden = true;
         expoortcsv.hidden = true;
+        exportTxt.hidden = true;
     }
 
     /* ZUSAMMENFASSUNG ANZEIGEN: Erstmal Table-Div anzeigen */
@@ -158,7 +158,7 @@ function drucken(title) {
 }
 /* END DRUCKEN */
 
-/* EXPORT ALS PDF and CSV */
+/* EXPORT ALS PDF */
 function exportAlsPdf() {
     var zusammenfassung = new jsPDF();
     zusammenfassung.setFillColor(1);
@@ -171,7 +171,9 @@ function exportAlsPdf() {
         zusammenfassung.save('zusammenfassung.pdf')
     });
 }
+/* END EXPORT ALS PDF */
 
+/* EXPORT ALS CSV */
 function exportAlsCSV() {
     tempArray = [];
     fullArray = [];
@@ -199,4 +201,34 @@ function exportAlsCSV() {
     hiddenElement.click();
 
 }
-/* END EXPORT ALS CSV and PDF */
+/* END EXPORT ALS CSV */
+
+/* EXPORT ALS TXT */
+function exportAlsTxt() {
+    tempArray = [];
+    fullArray = [];
+    points = document.getElementsByClassName("storyPointInput");
+    names =  document.getElementsByClassName("nameInput");
+    for(i = 0; i < points.length; i ++){
+            if(points[i].value != "" || names[i].value != ""){
+                tempArray.push(points[i].value);
+                tempArray.push(names[i].value);
+                fullArray.push(tempArray);
+            }
+            
+            tempArray = [];
+    }
+
+    var txt = 'Punkte,Name: ';
+    fullArray.forEach(function(row) {
+        txt += row.join(', ');
+        txt += " | ";
+    });
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/txt;charset=utf-8,' + encodeURI(txt);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'PlanningPoker.txt';
+    hiddenElement.click();
+}
+/* END EXPORT ALS TXT */
+

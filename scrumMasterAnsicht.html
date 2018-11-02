@@ -13,7 +13,7 @@
             <title>Planning Poker</title>
         </head>
         <body>
-            
+            <!-- HEADER -->
             <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
                 <a class="my-0 mr-md-auto font-weight-normal" href="./index.html">
                     <img src="logo.jpg" alt="Logo">
@@ -23,7 +23,9 @@
                     <a class="p-2 text-dark" href="./scrumMasterAnsicht.html">Scrum Master Ansicht</a>
                 </nav>
             </div>
+            <!-- END HEADER -->
             
+            <!-- CONTENT -->
             <div class="container" id="storyPoints">
                 <p>Teammitglieder und Story Point erfassen:</p>
                 <div class="teammitglied">
@@ -74,21 +76,27 @@
                 <button type="button" class="btn btn-secondary" onclick="erstelleZuFas()">Zusammenfassung</button>
                 <button type="button" class="btn btn-secondary" id="exportButton" hidden onclick="exportAlsPdf('Zusammenfassung:')">export als PDF</button>
                 <button type="button" class="btn btn-secondary" id="exportCSVButton" hidden onclick="exportAlsCSV()">Export als CSV</button>
+                <button type="button" class="btn btn-secondary" id="exportTxtButton" hidden onclick="exportAlsTxt()">Export als TXT</button>
+                <!-- <button type="button" class="btn btn-secondary" id="exportCSVButton" hidden onclick="exportAlsXls()">Export als XLS</button> -->
             </div>
             <div id="tableContainer" hidden>
                 <!-- HIER LEBT DIE ZUSAMMENFASSUNGSTABELLE; NICHTS REINSCHREIBEN! -->
             </div>
+            <!-- END CONTENT -->
 
+            <!-- FOOTER -->
             <footer class="footer">
                 &copy Ersteller: Florence Meier, Pascal Bamert, Nick Dubuis, Niklas Kaesler |
-                Erstelldatum: 07.09.18 |
-                Version: Alpha 0.1
+                Erstelldatum: 02.11.18 |
+                Version: Alpha 0.4
             </footer>
+            <!-- END FOOTER -->
 
+            <!-- SCRIPT AT THE END MAKE CREATION FASTER -->
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
             <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-            <script src="functions.js"></script>
+            <script src="./functions.js"></script>
         </body>
 </html>
