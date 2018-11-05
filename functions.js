@@ -1,5 +1,4 @@
-/* CARD FLP FUNCTION */
-var x = 0;
+/* CARD FLIP FUNCTION */
 function ausWahlBestaetigen() {
     var flipCard = document.getElementById("cardWrapper").children;
     var txt = "";
@@ -35,10 +34,10 @@ function resetPoints() {
 /* END RESET BUTTON */
 
 /* AVERAGE PUNKTE */
+var x = 0;
 function updatevalue() {
     var totalvalue = 0;
     var count = 0;
-    var fibos = [0,1,2,3,5,8,13,21,34,55,89,144]
     var array = document.getElementsByClassName("storyPointInput");
     for (var i =0; i < array.length; i++) {
             if( array[i].value != ""){
@@ -49,21 +48,38 @@ function updatevalue() {
     }
     document.getElementById("totalpoints").innerHTML = totalvalue;
 
-    var average = totalvalue / count;
-    for (var i =0; i < fibos.length; i++){
-        if( average == fibos[i]){
-            x = fibos[i];
-        }
-        else if(average > fibos[i] && average < fibos[i+1]) {
-            x = fibos[i+1];
-        }
-        else{
-        }
-    }
+    /* Berechnung des Durchschnitts und Runden auf Fibonacci-Zahl */
+    var average = mittelWertBerechnen(totalvalue, count);
+    x = rundenAufFibo(average);
+
     document.getElementById("average").innerHTML = x;
-    
 }
 /* END AVERAGE PUNKTE */
+
+/* START MITTELWERT BERECHNEN */
+function mittelWertBerechnen(total, zähler){
+    return average = total/zähler;
+}
+/* END MITTELWERT BERECHNEN */
+
+/* START RUNDEN AUF FIBONACCI BERECHNEN */
+function rundenAufFibo(durchschnitt){
+    const fibos = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
+    for (var i =0; i < fibos.length; i++){
+        if(durchschnitt == fibos[i]){
+            return x = fibos[i];
+        }
+        if(durchschnitt > fibos[i] && durchschnitt < fibos[i+1]) {
+            if(durchschnitt - fibos[i] < fibos[i+1] - durchschnitt){
+                return x = fibos[i];
+            }
+            else{
+                return x = fibos[i+1];
+            }
+        }
+    }
+}
+/* END RUNDEN AUF FIBONACCI BERECHNEN */
 
 /* ZUSAMMENFASSUNG ANZEIGEN */
 function erstelleZuFas() {
