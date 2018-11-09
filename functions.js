@@ -58,28 +58,46 @@ function updatevalue() {
 
 /* START MITTELWERT BERECHNEN */
 function mittelWertBerechnen(total, zähler){
-    return average = total/zähler;
+    if(validate(total, zähler)){
+        return average = total/zähler;
+    }
+    else {
+        throw new TypeError("Inputs have to be numbers!");
+    } 
 }
 /* END MITTELWERT BERECHNEN */
 
 /* START RUNDEN AUF FIBONACCI BERECHNEN */
 function rundenAufFibo(durchschnitt){
-    const fibos = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
-    for (var i =0; i < fibos.length; i++){
-        if(durchschnitt == fibos[i]){
-            return x = fibos[i];
-        }
-        if(durchschnitt > fibos[i] && durchschnitt < fibos[i+1]) {
-            if(durchschnitt - fibos[i] < fibos[i+1] - durchschnitt){
+    if(validate(durchschnitt)){
+        const fibos = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
+        for (var i =0; i < fibos.length; i++){
+            if(durchschnitt == fibos[i]){
                 return x = fibos[i];
             }
-            else{
-                return x = fibos[i+1];
+            if(durchschnitt > fibos[i] && durchschnitt < fibos[i+1]) {
+                if(durchschnitt - fibos[i] < fibos[i+1] - durchschnitt){
+                    return x = fibos[i];
+                }
+                else{
+                    return x = fibos[i+1];
+                }
             }
         }
     }
+    else {
+        throw new TypeError("Inputs have to be numbers!");
+    }
 }
 /* END RUNDEN AUF FIBONACCI BERECHNEN */
+
+function validate(total, zähler){
+    let ok = false;
+    if(typeof total === 'number' && (typeof zähler === 'number' || zähler === undefined)){
+        ok = true;
+    }
+    return ok;
+}
 
 /* ZUSAMMENFASSUNG ANZEIGEN */
 function erstelleZuFas() {

@@ -28,11 +28,34 @@ QUnit.test( "mittelWertBerechnen: pass mit korrekten negativen Werten", function
   assert.equal(mittelWertBerechnen(-8, -2), 4, "Mittelwert berechnen mit Total = -8 und Zähler = -2, pass = 4");
 });
 
-QUnit.test( "mittelWertBerechnen: fail mit Texteingabe", function( assert ) {
-  assert.notEqual(mittelWertBerechnen("a", 2), 4, "Mittelwert berechnen mit Total = 'a' und Zähler = 2, fail = 4");
-  assert.notEqual(mittelWertBerechnen(8, "a"), 4, "Mittelwert berechnen mit Total = 8 und Zähler = 'a', fail = 4");
-  assert.notEqual(mittelWertBerechnen("a", "a"), 1, "Mittelwert berechnen mit Total = 'a' und Zähler = 'a', fail = 1");
-  assert.notEqual(mittelWertBerechnen("a", "a"), NaN, "Mittelwert berechnen mit Total = 'a' und Zähler = 'a', fail = NaN, da mit String keine Division möglich");
+QUnit.test( "mittelWertBerechnen: errors mit Texteingabe", function( assert ) {
+  assert.throws(function() {
+    mittelWertBerechnen("a", 2)
+  }, "TypeError: Inputs have to be numbers!, mit total = 'a' und zähler = 2");
+  assert.throws(function() {
+    mittelWertBerechnen(8, "a")
+  }, "TypeError: Inputs have to be numbers!, mit total = 8 und zähler = 'a'");
+  assert.throws(function() {
+    mittelWertBerechnen("a", "a")
+  }, "TypeError: Inputs have to be numbers!, mit total = 'a' und zähler = 'a'");
+  assert.throws(function() {
+    mittelWertBerechnen('a', 2)
+  }, "TypeError: Inputs have to be numbers!, mit total = char 'a' und zähler = 2");
+});
+
+QUnit.test( "mittelWertBerechnen: errors mit boolean Wertn", function( assert ) {
+  assert.throws(function() {
+    mittelWertBerechnen(false, 2)
+  }, "TypeError: Inputs have to be numbers!, mit total = false und zähler = 2");
+  assert.throws(function() {
+    mittelWertBerechnen(true, 2)
+  }, "TypeError: Inputs have to be numbers!, mit total = true und zähler = 2");
+  assert.throws(function() {
+    mittelWertBerechnen(true, true)
+  }, "TypeError: Inputs have to be numbers!, mit total = true und zähler = true");
+  assert.throws(function() {
+    mittelWertBerechnen(false, false)
+  }, "TypeError: Inputs have to be numbers!, mit total = char false und zähler = false");
 });
 
 
@@ -52,14 +75,22 @@ QUnit.test( "rundenAufFibo(): fail mit negativen Werten", function( assert ) {
 });
 
 QUnit.test( "rundenAufFibo(): fail Texteingabe", function( assert ) {
-  assert.notEqual(rundenAufFibo("a"), 0, "Runden von 'a', fail");
+  assert.throws(function(){
+    rundenAufFibo("a")
+  }, "TypeError, da Texteingabe: 'a'");
 });
 
 QUnit.test( "rundenAufFibo(): fail Chars", function( assert ) {
-  assert.notEqual(rundenAufFibo('A'), 55, "Runden von Char 'A' (entspricht 65), fail");
+  assert.throws(function(){
+    rundenAufFibo('A')
+  }, "TypeError, da Chareingabe: 'A'");
 });
 
 QUnit.test( "rundenAufFibo(): fail booleans", function( assert ) {
-  assert.notEqual(rundenAufFibo(true), 1, "Runden von true (entspricht 1), fail");
-  assert.notEqual(rundenAufFibo(false), 0, "Runden von false (entspricht 0), fail");
+  assert.throws(function(){
+    rundenAufFibo(true)
+  }, "TypeError, da Boolean: true");
+  assert.throws(function(){
+    rundenAufFibo(false)
+  }, "TypeError, da Boolean: true");
 });
