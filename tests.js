@@ -43,7 +43,7 @@ QUnit.test( "mittelWertBerechnen: errors mit Texteingabe", function( assert ) {
   }, "TypeError: Inputs have to be numbers!, mit total = char 'a' und zähler = 2");
 });
 
-QUnit.test( "mittelWertBerechnen: errors mit boolean Wertn", function( assert ) {
+QUnit.test( "mittelWertBerechnen: errors mit boolean Werten", function( assert ) {
   assert.throws(function() {
     mittelWertBerechnen(false, 2)
   }, "TypeError: Inputs have to be numbers!, mit total = false und zähler = 2");
@@ -55,7 +55,7 @@ QUnit.test( "mittelWertBerechnen: errors mit boolean Wertn", function( assert ) 
   }, "TypeError: Inputs have to be numbers!, mit total = true und zähler = true");
   assert.throws(function() {
     mittelWertBerechnen(false, false)
-  }, "TypeError: Inputs have to be numbers!, mit total = char false und zähler = false");
+  }, "TypeError: Inputs have to be numbers!, mit total = false und zähler = false");
 });
 
 
@@ -92,5 +92,5 @@ QUnit.test( "rundenAufFibo(): fail booleans", function( assert ) {
   }, "TypeError, da Boolean: true");
   assert.throws(function(){
     rundenAufFibo(false)
-  }, "TypeError, da Boolean: true");
+  }, "TypeError, da Boolean: false");
 });
