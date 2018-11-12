@@ -1,3 +1,4 @@
+const fibos = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
 /* CARD FLIP FUNCTION */
 function ausWahlBestaetigen() {
     var flipCard = document.getElementById("cardWrapper").children;
@@ -34,25 +35,26 @@ function resetPoints() {
 /* END RESET BUTTON */
 
 /* AVERAGE PUNKTE */
-var x = 0;
 function updatevalue() {
-    var totalvalue = 0;
-    var count = 0;
-    var array = document.getElementsByClassName("storyPointInput");
-    for (var i =0; i < array.length; i++) {
-            if( array[i].value != ""){
-            
+    let x = 0;
+    let totalvalue = 0;
+    let count = 0;
+    let array = document.getElementsByClassName("storyPointInput");
+    for (let i = 0; i < array.length; i++) {
+        if(punktValidation(array[i].value)){        
             totalvalue += +array[i].value;
             count += 1;
         }
     }
-    document.getElementById("totalpoints").innerHTML = totalvalue;
 
     /* Berechnung des Durchschnitts und Runden auf Fibonacci-Zahl */
-    var average = mittelWertBerechnen(totalvalue, count);
+    let average = mittelWertBerechnen(totalvalue, count);
     x = rundenAufFibo(average);
 
+    document.getElementById("totalpoints").innerHTML = totalvalue;
     document.getElementById("average").innerHTML = x;
+
+    highlighting();
 }
 /* END AVERAGE PUNKTE */
 
@@ -67,11 +69,79 @@ function mittelWertBerechnen(total, zähler){
 }
 /* END MITTELWERT BERECHNEN */
 
+/*  Validierung Zahlen für Total Punkte */
+function punktValidation(punkt) {
+    if(punkt != "" && fibonacciZahl(punkt)){
+        return true;
+    } else {
+        return false;
+    }
+}
+/* END Validierung Zahlen für Total Punkte */
+
+/* CHECK IF FIBONACCIZAHL */
+function fibonacciZahl(punkt){
+    if(fibos.includes(parseInt(punkt))) {
+        return true;
+    } else {
+        return false;
+    }
+}
+/* END CHECK IF FIBONACCIZAHL */
+
+/* HIGNLIGHTING */
+function highlighting() {
+    let temp = [];
+    let smallest;
+    let largest;
+    let array = document.getElementsByClassName("storyPointInput");    
+
+    for (let i = 0; i < array.length; i++) {
+        if(parseInt(array[i].value) != NaN){
+            temp.push(parseInt(array[i].value));
+        }
+    }
+
+    let sorted = temp.slice().sort(function(a, b) {
+        return a - b;
+    });
+
+    while(sorted.length > 0){
+        if(fibonacciZahl(sorted[0])){
+            smallest = sorted[0];
+            break;
+        } else {
+            sorted.shift();
+        }
+    }   
+
+    while(sorted.length > 0)
+    if(fibonacciZahl(sorted[sorted.length - 1])){
+        largest = sorted[sorted.length - 1];
+        break;
+    } else {
+        sorted.pop();
+    }
+
+    for (let j = 0; j < array.length; j++) {
+        if(parseInt(array[j].value) != NaN){
+            if(parseInt(array[j].value) === smallest){
+                array[j].className = "storyPointInput bg-info text-white";
+            } else if(parseInt(array[j].value) === largest)  {
+                array[j].className = "storyPointInput bg-warning text-white";
+            } else {
+                array[j].className = "storyPointInput";
+            }
+        }
+    }
+
+}
+/* END HIGNLIGHTING */
+
 /* START RUNDEN AUF FIBONACCI BERECHNEN */
 function rundenAufFibo(durchschnitt){
     if(validate(durchschnitt)){
-        const fibos = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
-        for (var i =0; i < fibos.length; i++){
+        for (let i =0; i < fibos.length; i++){
             if(durchschnitt == fibos[i]){
                 return x = fibos[i];
             }
@@ -91,6 +161,7 @@ function rundenAufFibo(durchschnitt){
 }
 /* END RUNDEN AUF FIBONACCI BERECHNEN */
 
+/* Validierung Zahlen für Averaging */
 function validate(total, zähler){
     let ok = false;
     if(typeof total === 'number' && (typeof zähler === 'number' || zähler === undefined)){
@@ -98,6 +169,7 @@ function validate(total, zähler){
     }
     return ok;
 }
+/* END Validierung Zahlen für Averaging */
 
 /* ZUSAMMENFASSUNG ANZEIGEN */
 function erstelleZuFas() {
