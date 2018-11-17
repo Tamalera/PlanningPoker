@@ -8,16 +8,11 @@ function ausWahlBestaetigen() {
     for (var i = 1; i < flipCard.length; i++) {
         if (flipCard[i].children[0].checked) {
             counter++;
-            txt = txt + flipCard[i].children[0].value.toString() + " ";
+            txt = flipCard[i].children[0].value.toString();
         }
     }
-    if (counter > 1 || counter === 0) {
-        document.getElementById("ausWahlAnzeigen").textContent = "Ungültige Wahl!";
-        document.getElementById("ausWahlAnzeigen").className = "my-2 bg-danger text-white";
-        
-    } else {
-        document.getElementById("ausWahlAnzeigen").textContent = "Gewählter SP: " + txt;
-        document.getElementById("ausWahlAnzeigen").className = "my-2 bg-success text-white";
+    if (counter === 1) {
+        $.cookie("value", txt);
     }
 }
 /* END CARD FLIP FUNCTION */

@@ -68,12 +68,13 @@ body {
     -webkit-transform: rotateY(180deg);
 }
 
-
 .nameInput {
+    height: 50px;
     width: 400px;
 }
 
 .storyPointInput {
+    height: 50px;
     width: 100px;
 }
 
@@ -96,4 +97,92 @@ body {
 /* IMPORTANT, SONST SCHWARZER HINTERGRUND BEIM PDF */
 #tableContainer {
     background-color: white;
+}
+
+#nameBlock {
+    margin-top: 60px;
+}
+
+#roomBlock {
+    margin-top: 60px;
+}
+
+#createRoomBlock {
+    margin-top: 60px;
+}
+
+.container-configuration {
+    height: auto;
+    width: 80vw;
+    margin-left: 10vw;
+}
+
+.joinRoomButton {
+    height: 50px;
+    width: 30%;
+    margin-left: 20%;
+}
+
+.createRoomButton {
+    height: 50px;
+    width: 30%;
+}
+
+
+#nameBlockInput {
+    width: 30%;
+    margin-left: 35%;
+}
+
+#roomBlockInput {
+    width: 30%;
+    margin-left: 35%;
+}
+
+#createRoomBlockInput {
+    width: 30%;
+    margin-left: 35%;
+}
+
+#nameBlockP {
+    margin-left: 35%;
+}
+
+#roomBlockP {
+    margin-left: 35%;
+}
+
+#createRoomBlockP {
+    margin-left: 35%;
+}
+
+#letsGoButton {
+    width: 60%;
+    height: 50px;
+    margin-top: 60px;
+    margin-left: 20%;
+}
+
+#createRoomButton {
+    width: 60%;
+    height: 50px;
+    margin-top: 60px;
+    margin-left: 20%;
+}
+
+#container-configuration-join {
+    display: none;
+}
+
+#container-configuration-create {
+    display: none;
+}
+
+.config-wrapper {
+    margin-top: 80px;
+    display: block;
+}
+
+#ausWahlAnzeigen {
+    visibility: hidden;
 }
