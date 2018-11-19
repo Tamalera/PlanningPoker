@@ -178,6 +178,7 @@ if (isset($_COOKIE['value']) && isset($_COOKIE['room']) && isset($_COOKIE['name'
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="./functions.js"></script>
 <script>updatevalue()</script>
 </body>
