@@ -23,7 +23,9 @@ function resetPoints() {
     var array = document.getElementsByClassName("storyPointInput");
     for (var i =0; i < array.length; i++) {
         array[i].value = "";
-        array[i].className = "storyPointInput";
+        if(array[i].className){
+            array[i].className = "storyPointInput";
+        }
     }
     document.getElementById("totalpoints").innerHTML = "";
     document.getElementById("average").innerHTML = "";
@@ -37,7 +39,7 @@ function updatevalue() {
     let count = 0;
     let array = document.getElementsByClassName("storyPointInput");
     for (let i = 0; i < array.length; i++) {
-        if(punktValidation(array[i].value)){        
+        if(punktValidation(array[i].value)){   
             totalvalue += +array[i].value;
             count += 1;
         }
@@ -93,7 +95,7 @@ function highlighting() {
     let array = document.getElementsByClassName("storyPointInput");    
 
     for (let i = 0; i < array.length; i++) {
-        if(parseInt(array[i].value) != NaN){
+        if(parseInt(array[i].value) != NaN && array[i].value != "-0" && array[i].value != "+0"){
             temp.push(parseInt(array[i].value));
         }
     }
