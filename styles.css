@@ -186,3 +186,14 @@ body {
 #ausWahlAnzeigen {
     visibility: hidden;
 }
+
+canvas{
+    width: 70vw;
+    height: auto;
+}
+
+#myChart{
+    position: relative;
+    width: 100px;
+    height: 100px;
+}

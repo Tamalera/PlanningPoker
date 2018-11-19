@@ -168,6 +168,7 @@ function validate(total, zähler){
 
 /* ZUSAMMENFASSUNG ANZEIGEN */
 function erstelleZuFas() {
+    generateGraph();
     /* Toggle "Export to PDF" btn */
     var exportButton = document.getElementById("exportButton");
     var exportcsv  = document.getElementById("exportCSVButton");
@@ -323,4 +324,89 @@ function exportFiles(fileType){
     hiddenElement.target = '_blank';
     hiddenElement.download = `PlanningPoker.${tempFiletype}`;
     hiddenElement.click();
+}
+
+function generateGraph(){
+    pointsArray = [];
+    countArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    points = document.getElementsByClassName("storyPointInput");
+    names =  document.getElementsByClassName("nameInput");
+    for(i = 0; i < points.length; i ++){
+            if(points[i].value != "" || names[i].value != ""){
+                pointsArray.push(points[i].value);
+            }
+     }
+     
+    for(i = 0; i < pointsArray.length; i++){
+        switch (pointsArray[i]) {
+            case "0":
+                countArray[0]++;
+                break;
+            
+            case "1":
+                countArray[1]++;
+                break;
+
+            case "2":
+                countArray[2]++;
+                break;
+
+            case "3":
+                countArray[3]++;
+                break;
+
+            case "5":
+                countArray[4]++;
+                break;
+
+            case "8":
+                countArray[5]++;
+                break;
+
+            case "13":
+                countArray[6]++;
+                break;
+
+            case "21":
+                countArray[7]++;
+                break;
+
+            case "34":
+                countArray[8]++;
+                break;
+
+            case "55":
+                countArray[9]++;
+                break;
+
+            case "89":
+                countArray[10]++;
+                break;
+
+            case "144":
+                countArray[11]++;
+                break;
+        }
+    }
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: fibos,
+        datasets: [{
+            label: "Storypoints",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: countArray,
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
 }

@@ -152,6 +152,8 @@ if (isset($_COOKIE['value']) && isset($_COOKIE['room']) && isset($_COOKIE['name'
     </button>
 </div>
 
+<canvas id="myChart"></canvas>
+
 <div id="tableContainer" hidden>
     <!-- HIER LEBT DIE ZUSAMMENFASSUNGSTABELLE; NICHTS REINSCHREIBEN! -->
 </div>
