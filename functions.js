@@ -123,7 +123,7 @@ function highlighting() {
             if(parseInt(array[j].value) === smallest){
                 array[j].className = "storyPointInput bg-info text-white";
             } else if(parseInt(array[j].value) === largest)  {
-                array[j].className = "storyPointInput bg-warning text-white";
+                array[j].className = "storyPointInput bg-success text-white";
             } else {
                 array[j].className = "storyPointInput";
             }
