@@ -151,7 +151,7 @@ function setDevName($room, $name)
         <p id="createRoomBlockP">Choose your roomname:</p>
         <input type="text" id="createRoomBlockInput" name="createRoomBlockInput">
     </div>
-    <button id="createRoomButton" name="createRoomButton" type="submit" class="btn btn-primary">Create room!</button>
+    <button id="createRoomButton" name="createRoomButton" type="submit" class="btn btn-primary">Add!</button>
 </form>
 
 <?php
