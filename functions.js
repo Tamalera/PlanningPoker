@@ -23,6 +23,7 @@ function resetPoints() {
     var array = document.getElementsByClassName("storyPointInput");
     for (var i =0; i < array.length; i++) {
         array[i].value = "";
+        array[i].className = "storyPointInput";
     }
     document.getElementById("totalpoints").innerHTML = "";
     document.getElementById("average").innerHTML = "";
