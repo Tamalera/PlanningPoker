@@ -1,3 +1,4 @@
+/* Constant size for logo set here */
 img {
   height: 30px;
   width: 30px;
@@ -21,11 +22,11 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Card Flipping */
+/* Card Flipping animation */
 .flipContainer {
   width: 160px;
   height: 200px;
-  cursor: pointer;
+  cursor: pointer; /* so usr knows that it is clickable */
 }
 
 .flip {
@@ -48,15 +49,15 @@ body {
   background: #ffb;
   text-align: center;
   line-height: 200px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* only visible, when flipped */
+  backface-visibility: hidden; /* only visible, when flipped */
   border-radius: 2px;
 }
 
 .flip .flipBack {
   background: rgb(5, 209, 66);
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg); /* Turn card 180° */
+  transform: rotateY(180deg); /* Turn card 180° */
 }
 
 #flip {
@@ -64,8 +65,8 @@ body {
 }
 
 :checked + .flip {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg); /* Turn card 180° */
+  -webkit-transform: rotateY(180deg); /* Turn card 180° */
 }
 
 .nameInput {
@@ -82,6 +83,7 @@ body {
   margin-bottom: 5px;
 }
 
+/* To emphasize total points */
 .totalStoryPoints {
   font-weight: bold;
 }
@@ -94,7 +96,7 @@ body {
   width: 100px;
 }
 
-/* IMPORTANT, SONST SCHWARZER HINTERGRUND BEIM PDF */
+/* IMPORTANT, otherwise, pdf background is black */
 #tableContainer {
   background-color: white;
 }

@@ -109,6 +109,7 @@ QUnit.test("mittelWertBerechnen: errors mit boolean Werten", function(assert) {
     mittelWertBerechnen(false, false);
   }, "TypeError: Inputs have to be numbers!, mit total = false und zähler = false");
 });
+/* END UNIT TESTS mittelWertBerechnen() */
 
 /* UNIT TESTS rundenAufFibo() */
 QUnit.test("rundenAufFibo(): pass mit korrekten Werten", function(assert) {
@@ -153,3 +154,4 @@ QUnit.test("rundenAufFibo(): fail booleans", function(assert) {
     rundenAufFibo(false);
   }, "TypeError, da Boolean: false");
 });
+/* END UNIT TESTS rundenAufFibo() */

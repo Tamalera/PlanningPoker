@@ -1,5 +1,20 @@
+/* GLOBAL CONSTANTS
+-----------------------------------------------------------
+*/
+
+/* Array of all allowed numbers of the Fibonacci series */
 const fibos = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
+
+/* METHODS
+-----------------------------------------------------------
+*/
 /* CARD FLIP FUNCTION */
+/* 
+This method looks for all cards with id cardWrapper and executes the flipping,
+ie a 180° rotation, of the chosen card.
+Parameters: none
+Return type: none
+*/
 function ausWahlBestaetigen() {
   var flipCard = document.getElementById("cardWrapper").children;
   var txt = "";
@@ -18,6 +33,13 @@ function ausWahlBestaetigen() {
 /* END CARD FLIP FUNCTION */
 
 /* RESET BUTTON */
+/* 
+This method resets all relevant elements to the default status.
+It removes the value of the storyPoint input fields and 
+both total story points and average input fields
+Parameters: none
+Return type: none
+*/
 function resetPoints() {
   var array = document.getElementsByClassName("storyPointInput");
   for (var i = 0; i < array.length; i++) {
@@ -31,31 +53,49 @@ function resetPoints() {
 }
 /* END RESET BUTTON */
 
-/* AVERAGE PUNKTE */
+/* UPDTE STORY POINTS */
+/* 
+This method updates the total of story points whenever a story point was added or removed.
+It calls the punktValidation which validated, that the value in array is correct and in an allowed format.
+It calls the average functions to calculate the average of the story points to update it.
+It calls the highlighting function, so the highlighting of the story points is updated whenever a story point changes.
+Parameters: none
+Return type: none
+*/
 function updatevalue() {
   let x = 0;
   let totalvalue = 0;
   let count = 0;
+  /* Get all story points to an array */
   let array = document.getElementsByClassName("storyPointInput");
   for (let i = 0; i < array.length; i++) {
+    /* Check if valid story point to avoid manipulation */
     if (punktValidation(array[i].value)) {
       totalvalue += +array[i].value;
       count += 1;
     }
   }
 
-  /* Berechnung des Durchschnitts und Runden auf Fibonacci-Zahl */
+  /* Calculate the avarage and round to next fibonacci number */
   let average = mittelWertBerechnen(totalvalue, count);
   x = rundenAufFibo(average);
 
+  /* Change values of total and average input fields */
   document.getElementById("totalpoints").innerHTML = totalvalue;
   document.getElementById("average").innerHTML = x;
 
+  /* Adjust the highlighting */
   highlighting();
 }
-/* END AVERAGE PUNKTE */
+/* END UPDATE STORY POINTS */
 
-/* START MITTELWERT BERECHNEN */
+/* CALCULATE AVARAGE */
+/* 
+This method returns the total points devided by the number of points. 
+It calls the validate function and returns an error if validation failed.
+Parameters: interger, integer
+Return type: integer or error
+*/
 function mittelWertBerechnen(total, zähler) {
   if (validate(total, zähler)) {
     return (average = total / zähler);
@@ -63,9 +103,15 @@ function mittelWertBerechnen(total, zähler) {
     throw new TypeError("Inputs have to be numbers!");
   }
 }
-/* END MITTELWERT BERECHNEN */
+/* END CALCULATE AVARAGE */
 
-/*  Validierung Zahlen für Total Punkte */
+/* VALIDATE THAT POINT BELONGS TO FIBONACCI SERIES */
+/* 
+This method validated whether the input value is not empty and part of the fibonacci series.
+It calls the validation for the fibonacci validation.
+Parameters: interger/string
+Return type: boolean
+*/
 function punktValidation(punkt) {
   if (punkt != "" && fibonacciZahl(punkt)) {
     return true;
@@ -73,9 +119,14 @@ function punktValidation(punkt) {
     return false;
   }
 }
-/* END Validierung Zahlen für Total Punkte */
+/* END VALIDATE THAT POINT BELONGS TO FIBONACCI SERIES */
 
 /* CHECK IF FIBONACCIZAHL */
+/* 
+This method validated whether the input value is part of the fibonacci series.
+Parameters: string
+Return type: boolean
+ */
 function fibonacciZahl(punkt) {
   if (fibos.includes(parseInt(punkt))) {
     return true;
@@ -86,12 +137,22 @@ function fibonacciZahl(punkt) {
 /* END CHECK IF FIBONACCIZAHL */
 
 /* HIGNLIGHTING */
+/* 
+This method highlights the highest and lowest numbers of the story points.
+It calls the fibonacci validation function when setting the lowest and highest story piont(s).
+The highest story point(s) get(s) highlighted in green.
+The lowest story point(s) get(s) highlighted in blue.
+Parameters: none
+Return type: none
+*/
 function highlighting() {
   let temp = [];
   let smallest;
   let largest;
+  /* Get all story points to an array */
   let array = document.getElementsByClassName("storyPointInput");
 
+  /* Fill temporary array with valid numbers */
   for (let i = 0; i < array.length; i++) {
     if (
       parseInt(array[i].value) != NaN &&
@@ -102,10 +163,12 @@ function highlighting() {
     }
   }
 
+  /* Sort the temporary array */
   let sorted = temp.slice().sort(function(a, b) {
     return a - b;
   });
 
+  /* Find smallest number */
   while (sorted.length > 0) {
     if (fibonacciZahl(sorted[0])) {
       smallest = sorted[0];
@@ -115,6 +178,7 @@ function highlighting() {
     }
   }
 
+  /* Find highest number */
   while (sorted.length > 0)
     if (fibonacciZahl(sorted[sorted.length - 1])) {
       largest = sorted[sorted.length - 1];
@@ -123,6 +187,9 @@ function highlighting() {
       sorted.pop();
     }
 
+  /* Highlight all story points which correspond to the smallest number blue */
+  /* Highlight all story points which correspond to the highest number green */
+  /* Leave all story points which do not correspond to the smallest/highest number white */
   for (let j = 0; j < array.length; j++) {
     if (parseInt(array[j].value) != NaN) {
       if (parseInt(array[j].value) === smallest) {
@@ -137,7 +204,13 @@ function highlighting() {
 }
 /* END HIGNLIGHTING */
 
-/* START RUNDEN AUF FIBONACCI BERECHNEN */
+/* ROUNT TO NEXT FIBONACCI NUMBER */
+/* 
+This method rounds a number to the next higher number within the fibonacci series.
+It calls the validate function to check that the average is of the propper type.
+Parameters: integer
+Return type: integer or error
+*/
 function rundenAufFibo(durchschnitt) {
   if (validate(durchschnitt)) {
     for (let i = 0; i < fibos.length; i++) {
@@ -156,9 +229,14 @@ function rundenAufFibo(durchschnitt) {
     throw new TypeError("Inputs have to be numbers!");
   }
 }
-/* END RUNDEN AUF FIBONACCI BERECHNEN */
+/* END ROUND TO NEXT FIBONACCI NUMBER */
 
-/* Validierung Zahlen für Averaging */
+/* VALIDATE NUMBER */
+/* 
+This method checks if the input is of type number. The second parameter is optional.
+Parameters: any, any
+Return type: boolean
+*/
 function validate(total, zähler) {
   let ok = false;
   if (
@@ -169,12 +247,17 @@ function validate(total, zähler) {
   }
   return ok;
 }
-/* END Validierung Zahlen für Averaging */
+/* END VALIDATE NUMBER */
 
-/* ZUSAMMENFASSUNG ANZEIGEN */
+/* SHOW SUMMARY AND TOGGLE BUTTONS */
+/* 
+This method toggles the buttons for exporting files and displays the summary as graph and as table.
+Parameters: none
+Return type: none
+*/
 function erstelleZuFas() {
   generateGraph();
-  /* Toggle "Export to PDF" btn */
+  /* Toggle buttons */
   var exportButton = document.getElementById("exportButton");
   var exportcsv = document.getElementById("exportCSVButton");
   var exportTxt = document.getElementById("exportTxtButton");
@@ -192,7 +275,7 @@ function erstelleZuFas() {
     exportXls.hidden = true;
   }
 
-  /* ZUSAMMENFASSUNG ANZEIGEN: Erstmal Table-Div anzeigen */
+  /* Toggle table with summary */
   var tableContainer = document.getElementById("tableContainer");
   if (tableContainer.hidden === true) {
     tableContainer.hidden = false;
@@ -200,12 +283,14 @@ function erstelleZuFas() {
     tableContainer.hidden = true;
   }
 
-  /* Sicherstellen, dass Tabelle nicht existiert, sonst doppelt */
+  /* Create table if unexistant, this check is necessary,
+  because otherwise the table will be created multiple times */
   var tabelle = document.getElementById("zusammenfassungTabelle");
   if (typeof tabelle != "undefined" && tabelle != null) {
     tabelle.parentElement.removeChild(tabelle);
   }
 
+  /* Fill table with data */
   var container = document.getElementById("tableContainer");
   var table = document.createElement("table");
   table.className = "table m-4";
@@ -244,9 +329,14 @@ function erstelleZuFas() {
   table.appendChild(tableBody);
   container.appendChild(table);
 }
-/* ENDE ZUSAMMENFASSUNG ANZEIGEN */
+/* END SHOW SUMMARY AND TOGGLE BUTTONS */
 
-/* DRUCKEN: Wird momentan nicht benötigt... */
+/* PRINT */
+/* 
+This method is for printing the summary table.
+Parameters: string
+Return type: boolean
+*/
 function drucken(title) {
   let fenster = window.open(
     "",
@@ -268,9 +358,14 @@ function drucken(title) {
 
   return true;
 }
-/* END DRUCKEN */
+/* END PRINT */
 
-/* EXPORT ALS PDF */
+/* EXPORT AS PDF */
+/* 
+This method is for the pdf file export. Detailed description from jsPDF.
+Parameters: none
+Return type: none
+*/
 function exportAlsPdf() {
   var zusammenfassung = new jsPDF();
   zusammenfassung.setFillColor(1);
@@ -283,28 +378,52 @@ function exportAlsPdf() {
     zusammenfassung.save("zusammenfassung.pdf");
   });
 }
-/* END EXPORT ALS PDF */
+/* END EXPORT AS PDF */
 
-/* EXPORT ALS CSV */
+/* EXPORT AS CSV */
+/* 
+This method sets the file type to csv and calls the export method.
+Parameters: none
+Return type: none
+*/
 function exportAlsCSV() {
   var csv = "csv";
   exportFiles(csv);
 }
-/* END EXPORT ALS CSV */
+/* END EXPORT AS CSV */
 
-/* EXPORT ALS TXT */
+/* EXPORT AS TXT */
+/* 
+This method sets the file type to txt and calls the export method.
+Parameters: none
+Return type: none
+*/
 function exportAlsTxt() {
   var txt = "txt";
   exportFiles(txt);
 }
-/* END EXPORT ALS TXT */
+/* END EXPORT AS TXT */
 
-/* EXPORT ALS XLS */
+/* EXPORT AS XLS */
+/* 
+This method sets the file type to xls and calls the export method.
+Parameters: none
+Return type: none
+*/
 function exportAlsXls() {
   var xls = "xls";
   exportFiles(xls);
 }
-/* END EXPORT ALS XLS */
+/* END EXPORT AS XLS */
+
+/* EXPORT FILE IN GIVEN FORMAT */
+/* 
+This method prepares a file in the given file type. 
+It gets filled with the story points and the users associated to the story points.
+Then this file is exported.
+Parameters: string
+Return type: none
+*/
 function exportFiles(fileType) {
   tempArray = [];
   fullArray = [];
@@ -316,7 +435,6 @@ function exportFiles(fileType) {
       tempArray.push(names[i].value);
       fullArray.push(tempArray);
     }
-
     tempArray = [];
   }
   var tempFiletype = fileType;
@@ -332,7 +450,14 @@ function exportFiles(fileType) {
   hiddenElement.download = `PlanningPoker.${tempFiletype}`;
   hiddenElement.click();
 }
+/* END EXPORT FILE IN GIVEN FORMAT */
 
+/* GENERATE GRAPH */
+/* 
+This method uses the charts.js functionality to prepare a graph. Detailed description from charts.js.
+Parameters: none
+Return type: none
+*/
 function generateGraph() {
   pointsArray = [];
   countArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -414,7 +539,8 @@ function generateGraph() {
       ]
     },
 
-    // Configuration options go here
+    // Configuration options go here, if needed
     options: {}
   });
 }
+/* END GENERATE GRAPH */
