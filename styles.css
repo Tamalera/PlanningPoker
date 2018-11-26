@@ -1,199 +1,198 @@
 img {
-    height: 30px;
-    width: 30px;
+  height: 30px;
+  width: 30px;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 body {
-    margin-bottom: 60px; /* Margin bottom by footer height */
+  margin-bottom: 60px; /* Margin bottom by footer height */
 }
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px; /* Set the fixed height of the footer here */
-    line-height: 60px; /* Vertically center the text there */
-    background-color: #f5f5f5;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
 }
 
 /* Card Flipping */
 .flipContainer {
-    width: 160px;
-    height: 200px;
-    cursor: pointer;
+  width: 160px;
+  height: 200px;
+  cursor: pointer;
 }
 
 .flip {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    font-size: 50px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transition: all 600ms;
-    transition: all 600ms;
-    z-index: 20;
-    border: 1px solid #000;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 50px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20;
+  border: 1px solid #000;
 }
 
 .flip div {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #FFB;
-    text-align: center;
-    line-height: 200px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 2px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #ffb;
+  text-align: center;
+  line-height: 200px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 2px;
 }
 
 .flip .flipBack {
-    background: rgb(5, 209, 66);
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+  background: rgb(5, 209, 66);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 #flip {
-    display: none;
+  display: none;
 }
 
 :checked + .flip {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .nameInput {
-    height: 50px;
-    width: 400px;
+  height: 50px;
+  width: 400px;
 }
 
 .storyPointInput {
-    height: 50px;
-    width: 100px;
+  height: 50px;
+  width: 100px;
 }
 
 .teammitglied {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .totalStoryPoints {
-    font-weight: bold;
+  font-weight: bold;
 }
 
-#totalpoints{
-    width: 100px;
+#totalpoints {
+  width: 100px;
 }
 
-#average{
-    width: 100px;
+#average {
+  width: 100px;
 }
 
 /* IMPORTANT, SONST SCHWARZER HINTERGRUND BEIM PDF */
 #tableContainer {
-    background-color: white;
+  background-color: white;
 }
 
 #nameBlock {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 #roomBlock {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 #createRoomBlock {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 .container-configuration {
-    height: auto;
-    width: 80vw;
-    margin-left: 10vw;
+  height: auto;
+  width: 80vw;
+  margin-left: 10vw;
 }
 
 .joinRoomButton {
-    height: 50px;
-    width: 30%;
-    margin-left: 20%;
+  height: 50px;
+  width: 30%;
+  margin-left: 20%;
 }
 
 .createRoomButton {
-    height: 50px;
-    width: 30%;
+  height: 50px;
+  width: 30%;
 }
 
-
 #nameBlockInput {
-    width: 30%;
-    margin-left: 35%;
+  width: 30%;
+  margin-left: 35%;
 }
 
 #roomBlockInput {
-    width: 30%;
-    margin-left: 35%;
+  width: 30%;
+  margin-left: 35%;
 }
 
 #createRoomBlockInput {
-    width: 30%;
-    margin-left: 35%;
+  width: 30%;
+  margin-left: 35%;
 }
 
 #nameBlockP {
-    margin-left: 35%;
+  margin-left: 35%;
 }
 
 #roomBlockP {
-    margin-left: 35%;
+  margin-left: 35%;
 }
 
 #createRoomBlockP {
-    margin-left: 35%;
+  margin-left: 35%;
 }
 
 #letsGoButton {
-    width: 60%;
-    height: 50px;
-    margin-top: 60px;
-    margin-left: 20%;
+  width: 60%;
+  height: 50px;
+  margin-top: 60px;
+  margin-left: 20%;
 }
 
 #createRoomButton {
-    width: 60%;
-    height: 50px;
-    margin-top: 60px;
-    margin-left: 20%;
+  width: 60%;
+  height: 50px;
+  margin-top: 60px;
+  margin-left: 20%;
 }
 
 #container-configuration-join {
-    display: none;
+  display: none;
 }
 
 #container-configuration-create {
-    display: none;
+  display: none;
 }
 
 .config-wrapper {
-    margin-top: 80px;
-    display: block;
+  margin-top: 80px;
+  display: block;
 }
 
 #ausWahlAnzeigen {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-canvas{
-    width: 70vw;
-    height: auto;
+canvas {
+  width: 70vw;
+  height: auto;
 }
 
-#myChart{
-    position: relative;
-    width: 100px;
-    height: 100px;
+#myChart {
+  position: relative;
+  width: 100px;
+  height: 100px;
 }
