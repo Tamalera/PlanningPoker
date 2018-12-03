@@ -1,3 +1,9 @@
+/* 
+Author: Florence Meier
+Version: 2.5
+Last Updated: 30.11.2018
+*/
+
 /* GLOBAL CONSTANTS
 -----------------------------------------------------------
 */

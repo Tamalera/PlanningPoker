@@ -1,4 +1,10 @@
 <?php
+/* 
+PHP-Part I
+Author: Pascal Bamert
+Version: 1.1
+Last Updated: 26.11.2018
+ */
 require_once('Room.php');
 
 if (isset($_POST['letsGoButton'])) {
@@ -98,11 +104,16 @@ function setDevName($room, $name)
 
 <!DOCTYPE html>
 <html>
+<!-- 
+    HTML-Part
+    Author: Florence Meier
+    Version: 2.5
+    Last Updated: 30.11.2018
+-->
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -155,6 +166,12 @@ function setDevName($room, $name)
 </form>
 
 <?php
+/* 
+PHP-Part II
+Author: Pascal Bamert
+Version: 1.1
+Last Updated: 26.11.2018
+ */
 if (isset($_COOKIE['name']) && isset($_COOKIE['room'])) {
     echo '
                 <form id="container-cards" class="container" method="post" action="">
@@ -254,23 +271,23 @@ if (isset($_COOKIE['name']) && isset($_COOKIE['room'])) {
 }
 ?>
 
-<footer class="footer">
-    &copy Ersteller: Florence Meier, Pascal Bamert, Nick Dubuis, Niklas Kaesler |
-    Erstelldatum: 07.09.18 |
-    Version: Alpha 0.1
-</footer>
+        <footer class="footer">
+            &copy Ersteller: Florence Meier, Pascal Bamert, Nick Dubuis, Niklas Kaesler |
+            Erstelldatum: 03.12.18 |
+            Version: 2.5
+        </footer>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-<script src="functions.js"></script>
-<script src="cookies.js"></script>
-<script src="configuration.js"></script>
-</body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+        <script src="functions.js"></script>
+        <script src="cookies.js"></script>
+        <script src="configuration.js"></script>
+    </body>
 </html>

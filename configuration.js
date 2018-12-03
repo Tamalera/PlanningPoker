@@ -1,3 +1,8 @@
+/* 
+Author: Pascal Bamert
+Version: 1.0
+Last Updated: 26.11.2018
+ */
 $.cookie.raw = true;
 $.cookie.json = true;
 

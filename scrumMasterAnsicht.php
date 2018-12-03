@@ -1,4 +1,10 @@
 <?php
+/* 
+PHP-Part
+Author: Pascal Bamert
+Version: 1.1
+Last Updated: 26.11.2018
+ */
 require_once('Room.php');
 
 if (isset($_COOKIE['value']) && isset($_COOKIE['room']) && isset($_COOKIE['name'])) {
@@ -14,6 +20,12 @@ if (isset($_COOKIE['value']) && isset($_COOKIE['room']) && isset($_COOKIE['name'
 ?>
 
 <!DOCTYPE html>
+<!-- 
+    HTML-Part
+    Author: Florence Meier
+    Version: 2.5
+    Last Updated: 30.11.2018
+-->
 <html>
     <head>
         <!-- Required meta tags -->
@@ -164,8 +176,8 @@ if (isset($_COOKIE['value']) && isset($_COOKIE['room']) && isset($_COOKIE['name'
         <!-- FOOTER -->
         <footer class="footer">
             &copy Ersteller: Florence Meier, Pascal Bamert, Nick Dubuis, Niklas Kaesler |
-            Erstelldatum: 02.11.18 |
-            Version: Alpha 0.4
+            Erstelldatum: 03.12.18 |
+            Version: 2.5
         </footer>
         <!-- END FOOTER -->
 

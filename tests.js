@@ -1,3 +1,10 @@
+/*
+Author: Florence Meier
+Version: 1.2
+Last Updated: 09.11.2018
+Details: https://qunitjs.com/
+*/
+
 /* UNIT TESTS mittelWertBerechnen() */
 QUnit.test("mittelWertBerechnen(): pass mit korrekten Werten", function(
   assert

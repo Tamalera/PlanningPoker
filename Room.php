@@ -1,4 +1,9 @@
 <?php
+/* 
+Author: Pascal Bamert
+Version: 1.1
+Last Updated: 26.11.2018
+ */
 
 class Room {
 

@@ -1,4 +1,8 @@
-/*!
+/* 
+Author: Pascal Bamert
+Version: 1.0
+Last Updated: 26.11.2018
+Details:
  * jQuery Cookie Plugin v1.4.1
  * https://github.com/carhartl/jquery-cookie
  *
